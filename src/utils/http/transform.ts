@@ -80,7 +80,7 @@ const transForm: TransForm = {
             })
 
             window.localStorage.clear()
-            router.replace({name: 'Login'}).then(() => {
+            router.replace({name: 'Oauth2'}).then(() => {
             })
         }
     },

@@ -23,10 +23,7 @@ export const getToken = (data: any) => {
             method: 'post',
             data,
             headers
-        },
-        {
-            withToken: false,
-        },
+        }
     )
 }
 
