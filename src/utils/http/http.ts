@@ -35,7 +35,7 @@ class Http {
             // ------------------------前置拦截操作--------------------------------
             const userStore = useUserStoreWithOut()
             const token = JSON.parse(userStore.token);
-            console.log("access_token="+token.access_token)
+            //console.log("access_token="+token.access_token)
             this.axiosInstance.interceptors.request.use(
                 (config: InternalAxiosRequestConfig) => {
                     //全局请求拦截里面加token，当存在token而且url不是认证地址需要添加请求头,否则跳转认证服务器
