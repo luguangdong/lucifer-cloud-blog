@@ -16,13 +16,14 @@ const grant_type = query.grant_type;
 const {message} = createDiscreteApi(['message'])
 
 if (token) {
+  const parseToken = JSON.parse(token);
   // 存在token但是过期refresh_token
   if (grant_type) {
     getToken({
       grant_type: grant_type,
+      refresh_token: parseToken.refresh_token,
       client_id: env.VITE_APP_OAUTH_CLIENT_ID,
-      client_secret: env.VITE_APP_OAUTH_CLIENT_SECRET,
-      redirect_uri: env.VITE_APP_OAUTH_REDIRECT_URI
+      client_secret: env.VITE_APP_OAUTH_CLIENT_SECRET
     }).then((res: any) => {
       userStore.setToken(JSON.stringify(res))
       router.push({path: '/'})
