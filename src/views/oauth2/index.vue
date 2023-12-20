@@ -12,12 +12,27 @@ const userStore = useUserStoreWithOut()
 const token = userStore.getToken
 const route = useRoute()
 const query = route.query
-let grant_type = query.grant_type;
-if (token) {
-  router.push({path: '/'})
-} else {
-  const {message} = createDiscreteApi(['message'])
+const grant_type = query.grant_type;
+const {message} = createDiscreteApi(['message'])
 
+if (token) {
+  // 存在token但是过期refresh_token
+  if (grant_type) {
+    getToken({
+      grant_type: grant_type,
+      client_id: env.VITE_APP_OAUTH_CLIENT_ID,
+      client_secret: env.VITE_APP_OAUTH_CLIENT_SECRET,
+      redirect_uri: env.VITE_APP_OAUTH_REDIRECT_URI
+    }).then((res: any) => {
+      userStore.setToken(JSON.stringify(res))
+      router.push({path: '/'})
+    }).catch((e) => {
+      message.warning(`请求token失败：${e}`)
+    })
+  } else {
+    router.push({path: '/'})
+  }
+} else {
   // 生成state
   let state: string = generateCodeVerifier()
 
@@ -34,11 +49,8 @@ if (token) {
       message.warning('state校验失败.')
     } else {
       // 从缓存中获取 codeVerifier
-      if(!grant_type){
-        grant_type = 'authorization_code';
-      }
       getToken({
-        grant_type: grant_type,
+        grant_type: 'authorization_code',
         client_id: env.VITE_APP_OAUTH_CLIENT_ID,
         client_secret: env.VITE_APP_OAUTH_CLIENT_SECRET,
         redirect_uri: env.VITE_APP_OAUTH_REDIRECT_URI,
