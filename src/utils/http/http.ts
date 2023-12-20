@@ -93,7 +93,12 @@ class Http {
                         case 401:
                             messageText = "未授权，请重新登录(401)";
                             // 这里可以做清空storage并跳转到登录页的操作
-                            router.push({ path: '/oauth2/refresh' })
+                            router.push({
+                                path: '/oauth2',
+                                query: {
+                                    grant_type: 'refresh_token'
+                                },
+                            })
                             break;
                         case 403:
                             messageText = "拒绝访问(403)";

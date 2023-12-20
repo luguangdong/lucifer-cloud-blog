@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {router} from '@/router'
+import {useRoute} from 'vue-router'
 import {getToken} from '@/api/oauth2'
 import {createDiscreteApi} from 'naive-ui'
 import {generateCodeVerifier} from '@/utils/pkce'
@@ -9,6 +10,9 @@ import {env} from "@/utils/env";
 
 const userStore = useUserStoreWithOut()
 const token = userStore.getToken
+const route = useRoute()
+const query = route.query
+let grant_type = query.grant_type;
 if (token) {
   router.push({path: '/'})
 } else {
@@ -30,8 +34,11 @@ if (token) {
       message.warning('state校验失败.')
     } else {
       // 从缓存中获取 codeVerifier
+      if(!grant_type){
+        grant_type = 'authorization_code';
+      }
       getToken({
-        grant_type: 'authorization_code',
+        grant_type: grant_type,
         client_id: env.VITE_APP_OAUTH_CLIENT_ID,
         client_secret: env.VITE_APP_OAUTH_CLIENT_SECRET,
         redirect_uri: env.VITE_APP_OAUTH_REDIRECT_URI,
