@@ -11,14 +11,14 @@ const constantRoutes: RouteRecordRaw[] = [
         children: [],
         component: () => import('@/views/home/index.vue'),
     },
-    {
-        path: '/login',
-        name: 'Login',
-        meta: {
-            title: '登录注册',
-        },
-        component: () => import('@/views/login/index.vue'),
-    },
+    // {
+    //     path: '/login',
+    //     name: 'Login',
+    //     meta: {
+    //         title: '登录注册',
+    //     },
+    //     component: () => import('@/views/login/index.vue'),
+    // },
     {
         path: '/oauth2',
         name: 'Oauth2',

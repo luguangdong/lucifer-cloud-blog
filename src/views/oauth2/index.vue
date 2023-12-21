@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {router} from '@/router'
+import {useRoute} from 'vue-router'
 import {getToken} from '@/api/oauth2'
 import {createDiscreteApi} from 'naive-ui'
 import {generateCodeVerifier} from '@/utils/pkce'
@@ -9,11 +10,30 @@ import {env} from "@/utils/env";
 
 const userStore = useUserStoreWithOut()
 const token = userStore.getToken
-if (token) {
-  router.push({path: '/'})
-} else {
-  const {message} = createDiscreteApi(['message'])
+const route = useRoute()
+const query = route.query
+const grant_type = query.grant_type;
+const {message} = createDiscreteApi(['message'])
 
+if (token) {
+  const parseToken = JSON.parse(token);
+  // 存在token但是过期refresh_token
+  if (grant_type) {
+    getToken({
+      grant_type: grant_type,
+      refresh_token: parseToken.refresh_token,
+      client_id: env.VITE_APP_OAUTH_CLIENT_ID,
+      client_secret: env.VITE_APP_OAUTH_CLIENT_SECRET
+    }).then((res: any) => {
+      userStore.setToken(JSON.stringify(res))
+      router.push({path: '/'})
+    }).catch((e) => {
+      message.warning(`请求token失败：${e}`)
+    })
+  } else {
+    router.push({path: '/'})
+  }
+} else {
   // 生成state
   let state: string = generateCodeVerifier()
 

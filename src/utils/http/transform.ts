@@ -73,14 +73,14 @@ const transForm: TransForm = {
 
     requestCatch(e: AxiosError, options: RequestOptions) {
         if (e?.response?.status === 401) {
-            window.$notification.error({
-                title: '提示',
-                content: 'token过期请重新登录',
-                duration: 2000,
-            })
-
-            window.localStorage.clear()
-            router.replace({name: 'Login'}).then(() => {
+            // window.$notification.error({
+            //     title: '提示',
+            //     content: 'token过期请重新登录',
+            //     duration: 2000,
+            // })
+            //
+            // window.localStorage.clear()
+            router.replace({name: 'Oauth2'}).then(() => {
             })
         }
     },
