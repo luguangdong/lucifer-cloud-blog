@@ -38,7 +38,7 @@ pipeline {
                 sh '${node_home}/bin/yarn -v'
                 sh 'export NODE_OPTIONS="--max-old-space-size=8192"'
                 sh '${node_home}/bin/yarn install'
-                sh '${node_home}/bin/yarn build-only:prod'
+                sh '${node_home}/bin/yarn build:prod'
                 sh 'cd dist && rm -rf ${publisher_sourceFiles} && tar -zcvf ${publisher_sourceFiles} * && mv ${publisher_sourceFiles} ../'
             }
 
