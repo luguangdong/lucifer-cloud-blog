@@ -63,7 +63,7 @@ class Http {
                             reject(res.data.msg)
                         }
 
-                        if (res.data.code === 0) {
+                        if (res.data.code === 200) {
                             resolve(res.data as unknown as Promise<Result<T>>)
                         }
                     },
