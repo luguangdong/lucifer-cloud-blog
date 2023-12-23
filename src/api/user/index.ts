@@ -8,6 +8,9 @@ export const updateUserInfo = (data: User.UpdateUserInfo) => {
             method: 'POST',
             data,
         },
+        {
+            serializeParams: false,
+        },
     )
 }
 
