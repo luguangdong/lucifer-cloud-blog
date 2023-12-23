@@ -61,7 +61,7 @@ const selectClick = (key: string) => {
         window.sessionStorage.clear()
         router.replace(
             {
-              name: 'Login',
+              name: 'Oauth2',
             },
         ).then(() => {
           menuStore.setActive('Home')
