@@ -28,5 +28,16 @@ export const getToken = (data: any) => {
 }
 
 
+export const logout = (data: any) => {
+    return oauth2http.request<any>(
+        {
+            url: '/logout',
+            method: 'get',
+            data,
+        }
+    )
+}
+
+
 
 

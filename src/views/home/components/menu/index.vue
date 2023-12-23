@@ -33,9 +33,10 @@ const menuClick = (item: Menu.menuList, index: number) => {
       positiveText: '确定',
       onPositiveClick: () => {
         window.sessionStorage.clear()
+        userStore.setToken('')
         router.replace(
             {
-              name: 'Login',
+              name: 'Oauth2',
             },
         ).then(() => {
           menuStore.setActive('Home')
@@ -59,6 +60,7 @@ const selectClick = (key: string) => {
       positiveText: '确定',
       onPositiveClick: () => {
         window.sessionStorage.clear()
+        userStore.setToken('')
         router.replace(
             {
               name: 'Oauth2',

@@ -5,6 +5,7 @@ import {userInfo} from '@/api/user'
 
 export interface UserState {
     state: string
+    code: string
     token: string
     info: User.Info
     detail: User.Detail
@@ -17,6 +18,7 @@ const useUserStore = defineStore({
         return {
             // 登录成功返回的用户信息
             state: '',
+            code: '',
             token: '',
             // 用户详细信息
             info: {} as User.Info,
@@ -27,6 +29,7 @@ const useUserStore = defineStore({
     getters: {
         getToken: (userState: UserState): string => userState.token,
         getState: (userState: UserState): string => userState.state,
+        getCode: (userState: UserState): string => userState.code,
     },
     actions: {
         setToken(token: string) {
@@ -34,6 +37,9 @@ const useUserStore = defineStore({
         },
         setState(state: string) {
             this.state = state
+        },
+        setCode(code: string) {
+            this.code = code
         },
         async getInfoDetail() {
             let res = await userInfo()
