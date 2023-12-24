@@ -11,7 +11,10 @@ export const createBlog = (data: {
         url: '/blog/create',
         method: 'post',
         data,
-    })
+    },
+    {
+        serializeParams: false,
+    },)
 }
 
 export const blogList = (params: {
