@@ -27,12 +27,15 @@ export const userInfo = (params?: { uid?: number }) => {
     )
 }
 
-export const updatePassword = (params?: { password: string }) => {
+export const updatePassword = (data: { password: string }) => {
     return http.request(
         {
             url: '/users/update/password',
-            method: 'GET',
-            params,
+            method: 'POST',
+            data,
+        },
+        {
+            serializeParams: false,
         },
     )
 }
