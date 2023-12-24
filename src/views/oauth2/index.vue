@@ -69,7 +69,10 @@ if (token) {
   } else {
     // 缓存state
     userStore.setState(state)
-    window.location.href = `${env.VITE_APP_OAUTH_ISSUER}/oauth2/authorize?client_id=${env.VITE_APP_OAUTH_CLIENT_ID}&response_type=code&scope=openid%20profile%20message.read%20message.write&redirect_uri=${env.VITE_APP_OAUTH_REDIRECT_URI}&state=${state}`
+    const url = `${env.VITE_APP_OAUTH_ISSUER}/oauth2/authorize?client_id=${env.VITE_APP_OAUTH_CLIENT_ID}&response_type=code&scope=openid%20profile%20message.read%20message.write&redirect_uri=${env.VITE_APP_OAUTH_REDIRECT_URI}&state=${state}`
+    //window.location.href = url
+    //window.open(url,'_blank ')
+    location.assign(url)
   }
 }
 </script>
