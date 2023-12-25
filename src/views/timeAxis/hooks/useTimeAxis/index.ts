@@ -21,7 +21,7 @@ const useTimeAxis = () => {
             timeAxisData.list =
                 res.data.exhibitions &&
                 res.data.exhibitions.map((item: Exhibition.ExhibitionsInfo) => {
-                    item.cover = `${env.VITE_APP_IMG_URL}${item.cover}`
+                    item.cover = `${env.VITE_APP_IMG_URL}/${item.cover}`
                     return item
                 })
         })

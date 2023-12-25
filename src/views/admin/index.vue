@@ -38,7 +38,7 @@ onMounted(() => {
 
 const url = computed(() => {
   const userStore = useUserStore()
-  return `${env.VITE_APP_IMG_URL}${userStore.info.background_image}`
+  return `${env.VITE_APP_IMG_URL}/${userStore.info.background_image}`
 })
 
 </script>

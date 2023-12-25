@@ -98,7 +98,7 @@ const useImages = () => {
             }) => {
                 item.cover_url = item.cover
                 item.path = item.cover
-                item.cover = `${env.VITE_APP_IMG_URL}${item.cover}`
+                item.cover = `${env.VITE_APP_IMG_URL}/${item.cover}`
                 return item
             })
             imagesData.likes = res.data.likes_ids || []

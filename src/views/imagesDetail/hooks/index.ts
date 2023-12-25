@@ -133,7 +133,7 @@ const useImageDetail = () => {
                 return {
                     ...ex,
                     url: ex.cover,
-                    cover: `${env.VITE_APP_IMG_URL}${ex.cover}`,
+                    cover: `${env.VITE_APP_IMG_URL}/${ex.cover}`,
                 }
             })[0]
 

@@ -28,7 +28,7 @@ const useAdmin = () => {
             adminData.list = res.data.exhibitions.map(e => {
                 return {
                     ...e,
-                    cover: `${env.VITE_APP_IMG_URL}${e.cover}`,
+                    cover: `${env.VITE_APP_IMG_URL}/${e.cover}`,
                     isShow: false,
                     isShowDel: false,
                 }

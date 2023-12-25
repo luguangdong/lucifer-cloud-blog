@@ -56,8 +56,8 @@ const useHome = () => {
                 blog_info &&
                 blog_info.map((item) => {
                     item.cover_path = item.cover
-                    item.cover = `${env.VITE_APP_IMG_URL}${item.cover}`
-                    item.user_info.avatar_url = `${env.VITE_APP_IMG_URL}${item.user_info.avatar_url}`
+                    item.cover = `${env.VITE_APP_IMG_URL}/${item.cover}`
+                    item.user_info.avatar_url = `${env.VITE_APP_IMG_URL}/${item.user_info.avatar_url}`
                     return item
                 })
         })
@@ -80,7 +80,7 @@ const useHome = () => {
                 exhibitionChartData.push(item.exhibitions_publish_value || '0')
             })
 
-            res.data.user_info.avatar_url = `${env.VITE_APP_IMG_URL}${res.data.user_info.avatar_url}`
+            res.data.user_info.avatar_url = `${env.VITE_APP_IMG_URL}/${res.data.user_info.avatar_url}`
             homeData.userInfo = res.data.user_info
             homeData.chart.categories = categories
             homeData.chart.blogChartData = blogChartData

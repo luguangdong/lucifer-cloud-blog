@@ -24,7 +24,7 @@ const useBlog = () => {
                     blogData.blogInfo =
                         res.data.blog_info &&
                         res.data.blog_info.map(item => {
-                            item.cover = `${env.VITE_APP_IMG_URL}${item.cover}`
+                            item.cover = `${env.VITE_APP_IMG_URL}/${item.cover}`
                             return item
                         })[0]
 
