@@ -62,7 +62,11 @@ export const blogEdit = (data: { uid: number, title: string, sub_title: string, 
             url: '/blog/update',
             method: 'post',
             data
-        }
+        },
+        {
+            serializeParams: false,
+        },
+
     )
 }
 
