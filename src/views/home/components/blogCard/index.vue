@@ -98,7 +98,7 @@ const toBlogDetail = () => {
           </div>
           <n-space vertical size="small">
             <div class="user">作者: {{ props.options.author }}</div>
-            <div class="time">时间: {{ moment(props.options.time * 1000).format('YYYY-MM-DD') }}</div>
+            <div class="time">时间: {{ moment(props.options.time * 1000).format('YYYY-MM-DD hh:mm:ss') }}</div>
           </n-space>
         </div>
       </div>
