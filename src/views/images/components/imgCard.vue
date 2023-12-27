@@ -168,7 +168,7 @@ const toDetail = () => {
           </div>
           <div class="name-time">
             <span class="name">{{ props.info.username }}</span>
-            <span class="time">{{ moment(props.time * 1000).format('YYYY-MM-DD hh:mm:ss') }}</span>
+            <span class="time">{{ moment(props.time).format('YYYY-MM-DD hh:mm:ss') }}</span>
           </div>
         </div>
         <div class="infos-right">

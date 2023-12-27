@@ -17,7 +17,10 @@ export const createExhibition = (
         url: '/exhibition/create',
         method: 'post',
         data,
-    })
+    },
+        {
+            serializeParams: false,
+        },)
 }
 
 export const exhibitionList = (
