@@ -27,20 +27,22 @@ watch(
 
 const beginAni = () => {
   subTitleText.value = []
-  const titleArr = props.subtitle.split('')
-  const len = titleArr.length
-  let index = 0
-  t.value && clearInterval(t.value)
-  t.value = setInterval(() => {
-    if (index <= len) {
-      subTitleText.value.push(titleArr[index])
-      index++
-    } else if (subTitleText.value.length == 0) {
-      index = 0
-    } else {
-      subTitleText.value.pop()
-    }
-  }, 500)
+  if(props.subtitle){
+    const titleArr = props.subtitle.split('')
+    const len = titleArr.length
+    let index = 0
+    t.value && clearInterval(t.value)
+    t.value = setInterval(() => {
+      if (index <= len) {
+        subTitleText.value.push(titleArr[index])
+        index++
+      } else if (subTitleText.value.length == 0) {
+        index = 0
+      } else {
+        subTitleText.value.pop()
+      }
+    }, 500)
+  }
 }
 </script>
 
