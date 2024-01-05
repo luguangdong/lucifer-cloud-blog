@@ -191,7 +191,7 @@ const reason = ref<string>('')
         </div>
         <div class="msg">
           <div class="label">date</div>
-          <div class="text">{{ moment(props.imageInfo.date * 1000).format('yyyy-MM-DD HH:mm:ss') }}</div>
+          <div class="text">{{ moment(props.imageInfo.date).format('YYYY-MM-DD HH:mm:ss') }}</div>
         </div>
         <div class="msg">
           <div class="label">resolution</div>

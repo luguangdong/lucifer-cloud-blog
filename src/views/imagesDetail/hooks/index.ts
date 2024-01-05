@@ -85,7 +85,7 @@ const useImageDetail = () => {
             key: 'created',
             icon: Calendar,
             render(detailData: Exhibition.ExhibitionsInfo): string {
-                return moment(detailData.created * 1000).format('YYYY-MM-DD hh:mm:ss')
+                return moment(detailData.created).format('YYYY-MM-DD HH:mm:ss')
             },
         },
         {

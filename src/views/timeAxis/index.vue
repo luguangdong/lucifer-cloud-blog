@@ -91,7 +91,7 @@ onUnmounted(() => {
                   <n-icon :size="18" class="icon">
                   <CalendarNumber></CalendarNumber>
                   </n-icon>
-                  {{ moment(item.created * 1000).format('YYYY-MM-DD hh:mm:ss') }}
+                  {{ moment(item.created).format('YYYY-MM-DD HH:mm:ss') }}
                 </span>
               <span>
                   {{ item.user_info.username }}

@@ -75,7 +75,7 @@ const {actionBtns} = useArticle()
       <div class="content-bottom">
         <div class="left">
           <div class="time">
-            {{ moment(props.time * 1000).format('YYYY-MM-DD hh:mm:ss') }}
+            {{ moment(props.time).format('YYYY-MM-DD HH:mm:ss') }}
           </div>
         </div>
         <div class="right">

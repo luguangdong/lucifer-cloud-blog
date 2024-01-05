@@ -66,7 +66,7 @@ onMounted(() => {
         <div class="content">
           {{ item.content }}
         </div>
-        <div class="time">{{ moment(item.created * 1000).format('YYYY-MM-DD hh:mm:ss') }}</div>
+        <div class="time">{{ moment(item.created).format('YYYY-MM-DD HH:mm:ss') }}</div>
       </div>
 
     </div>
