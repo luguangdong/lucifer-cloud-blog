@@ -6,7 +6,6 @@ import {setupNaive} from '@/plugin/naive'
 import {setupGlobal} from '@/plugin/global'
 import {setupVanta} from '@/plugin/vanta'
 import {setupMarkDown} from '@/plugin/markDown'
-import {setupVueVideoPlayer} from "@/plugin/videoPlayer";
 import {setupTailwind} from '@/plugin/tailwind'
 import {setupComponents} from '@/plugin/components'
 
@@ -30,8 +29,6 @@ const bootstrap = async () => {
     setupVanta(app)
     // 加载 markdown 编辑器
     setupMarkDown(app)
-    // 加载 video 播放器
-    setupVueVideoPlayer(app)
     // 加载组件
     setupComponents(app)
     // 挂载
