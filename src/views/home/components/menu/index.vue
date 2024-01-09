@@ -32,7 +32,7 @@ const menuClick = (item: Menu.menuList, index: number) => {
       negativeText: '算了',
       positiveText: '确定',
       onPositiveClick: () => {
-        window.sessionStorage.clear()
+        sessionStorage.clear()
         userStore.setToken('')
         router.replace(
             {
@@ -59,7 +59,7 @@ const selectClick = (key: string) => {
       negativeText: '算了',
       positiveText: '确定',
       onPositiveClick: () => {
-        window.sessionStorage.clear()
+        sessionStorage.clear()
         userStore.setToken('')
         router.replace(
             {
