@@ -10,6 +10,8 @@ import {useUserInfo} from '@/views/userInfo/hooks/useUserInfo'
 import {useMenuStore} from '@/store/modules/menu'
 import {Search, Moon, Sunny, PartlySunny} from '@vicons/ionicons5'
 import {updatePassword} from '@/api/user'
+import {logout} from '@/api/oauth2'
+
 
 
 const router = useRouter()
@@ -34,6 +36,7 @@ const menuClick = (item: Menu.menuList, index: number) => {
       onPositiveClick: () => {
         sessionStorage.clear()
         userStore.setToken('')
+        logout({});
         router.replace(
             {
               name: 'Oauth2',
@@ -61,6 +64,7 @@ const selectClick = (key: string) => {
       onPositiveClick: () => {
         sessionStorage.clear()
         userStore.setToken('')
+        logout({});
         router.replace(
             {
               name: 'Oauth2',
