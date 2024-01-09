@@ -84,11 +84,11 @@ const options = [
         key: 'editInfo',
         icon: renderIcon(FingerPrint),
     },
-    {
-        label: '修改密码',
-        key: 'editPassword',
-        icon: renderIcon(Create),
-    },
+    // {
+    //     label: '修改密码',
+    //     key: 'editPassword',
+    //     icon: renderIcon(Create),
+    // },
     {
         label: '退出登录',
         key: 'logout',
