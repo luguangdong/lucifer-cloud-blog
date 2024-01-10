@@ -14,6 +14,7 @@ import {imageDownload} from '@/utils/fileDownload'
 import {Exhibition} from '@/api/exhibition/type'
 import CubeLoading from '@/components/CubeLoading/index.vue'
 import {router} from '@/router'
+import {updateDownload} from "@/api/exhibition";
 
 interface imgCardProps {
   url?: string
@@ -70,9 +71,11 @@ const star = () => {
 const imagesDownload = () => {
   isLoading.value = true
   let name = props.url.split('/').pop() as string
-  imageDownload(props.url, name).then(() => {
+  imageDownload(props.url, name).then(async () => {
     isLoading.value = false
     emits('downloadSucess', props.id)
+    await updateDownload({uid: props.id})
+    window.$message.success('图片下载成功!')
   })
 }
 
