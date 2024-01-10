@@ -1,9 +1,10 @@
-import {reactive, ref} from 'vue'
+import {onMounted, reactive, ref} from 'vue'
 import type {UploadFileInfo} from 'naive-ui'
 import {useUserStoreWithOut} from '@/store/modules/user'
 // api
 import {upload} from '@/api/upload'
 import {createBlog} from '@/api/blog'
+import {tagsInfo} from "@/api/tag";
 
 
 // hooks
@@ -15,12 +16,25 @@ const usePublish = () => {
         content: '',
         cover: '',
     })
+
+
 // 博客表单 更多
     const BlogFormMore = reactive({
         tags: [],
-        tagsOptions: [],
         fileList: [] as UploadFileInfo[],
+        tagsOptions: [] as {label: string, value: number}[]
     })
+    onMounted(() => {
+        tagsInfo({type: 'blog'}).then((res) => {
+            BlogFormMore.tagsOptions = res.data.tags_info.map(tag => {
+                return {
+                    label: tag.name,
+                    value: tag.uid
+                }
+            })
+        })
+    })
+
 // btn 加载
     const isLoading = ref<boolean>(false)
 // 图片上传弹框
