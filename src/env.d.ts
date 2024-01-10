@@ -20,6 +20,8 @@ interface ImportMetaEnv {
 
     readonly VITE_APP_OAUTH_ISSUER: string
 
+    readonly VITE_APP_OAUTH_LOGOUT: string
+
     readonly VITE_APP_PKCE_CLIENT_ID: string
     readonly VITE_APP_OAUTH_CLIENT_ID: string
     readonly VITE_APP_PKCE_REDIRECT_URI: string
