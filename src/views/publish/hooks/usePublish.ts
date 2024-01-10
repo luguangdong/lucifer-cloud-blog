@@ -54,6 +54,8 @@ const usePublish = () => {
             cover: fileInfo.key,
             content: BlogForm.content,
             tags: BlogFormMore.tags.join(','),
+            file_id: fileInfo.file_id,
+
         }
         await createBlog(blogParams)
         isLoading.value = false
