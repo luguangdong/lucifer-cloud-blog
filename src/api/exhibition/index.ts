@@ -65,7 +65,7 @@ export const changeExhibitionStatus = (data: { uid: string | number, status: num
 export const updateDownload = (params: { uid: string | number }) => {
     return http.request(
         {
-            url: '/update/download',
+            url: '/exhibition/download',
             method: 'get',
             params,
         },
