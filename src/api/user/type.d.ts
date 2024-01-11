@@ -20,6 +20,7 @@ export namespace User {
     }
 
     export interface Info {
+        id: number
         uid: number
         username: string
         gender: number

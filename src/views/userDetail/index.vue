@@ -49,16 +49,16 @@ getList(uid)
         </div>
         <div class="banner-right">
           <n-button
-              :type="data.follow_ids.includes(userStore.info.uid) ? 'success' : 'error' "
+              :type="data.follow_ids.includes(userStore.info.id) ? 'success' : 'error' "
               size="small"
               @click="addFollow"
           >
             <n-icon
                 :size="20"
-                :component="data.follow_ids.includes(userStore.info.uid) ? Checkmark as any : Add as any"
+                :component="data.follow_ids.includes(userStore.info.id) ? Checkmark as any : Add as any"
             >
             </n-icon>
-            <span>{{ data.follow_ids.includes(userStore.info.uid) ? '已关注' : '关注' }}</span>
+            <span>{{ data.follow_ids.includes(userStore.info.id) ? '已关注' : '关注' }}</span>
           </n-button>
         </div>
       </div>

@@ -141,13 +141,13 @@ const useUserDetail = () => {
         const userStore = useUserStoreWithOut()
         const params = {
             follow_id: data.user_info.uid,
-            follow_type: data.follow_ids.includes(userStore.info.uid) ? 0 : 1,
+            follow_type: data.follow_ids.includes(userStore.info.id) ? 0 : 1,
         } as const
         await follow(params)
-        if (data.follow_ids.includes(userStore.info.uid)) {
-            data.follow_ids = data.follow_ids.filter(id => id != userStore.info.uid)
+        if (data.follow_ids.includes(userStore.info.id)) {
+            data.follow_ids = data.follow_ids.filter(id => id != userStore.info.id)
         } else {
-            data.follow_ids.push(userStore.info.uid)
+            data.follow_ids.push(userStore.info.id)
         }
     }
 
