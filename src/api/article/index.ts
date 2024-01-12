@@ -19,6 +19,7 @@ export const createArticle = (
         },
         {
             isShowSuccessMessage: true,
+            serializeParams: false,
         },
     )
 }
