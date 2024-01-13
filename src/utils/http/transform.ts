@@ -50,7 +50,7 @@ const transForm: TransForm = {
         const {code, msg, data} = res.data
 
         if (isShowMessage) {
-            if (isShowSuccessMessage && code === 0) {
+            if (isShowSuccessMessage && code === 200) {
                 window.$message.success(msg)
             }
 
