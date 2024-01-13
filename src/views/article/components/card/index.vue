@@ -6,14 +6,14 @@ import {useUserStore} from '@/store/modules/user'
 import CubeLoading from '@/components/CubeLoading/index.vue'
 
 interface Props {
-  uid: number
+  uid: number | string
   cover: string
   title: string
   subTitle: string
   avatar: string
   username: string
   time: number | string
-  userId: number
+  userId: number | string
   badges: number[]
 }
 

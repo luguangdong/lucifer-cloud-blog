@@ -8,7 +8,7 @@ export namespace Article {
     }
 
     export interface ArticleInfo {
-        uid: number
+        uid: number | string
         title: string
         sub_title: string
         content: string

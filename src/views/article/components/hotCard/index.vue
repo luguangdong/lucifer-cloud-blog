@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  uid: number
+  uid: number | string
   no: string | number
   title: string
   subtitle: string
